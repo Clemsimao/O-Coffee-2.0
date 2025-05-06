@@ -1,4 +1,4 @@
-import database from "./pgClient.js";
+import database from "./database.js";
 
 const dataMapper = {
     // requete préparée pour l'onglet nouveautés de la page d'accueil, de base je voulais afficher les 3 premiers de la liste mais pour plus de dynamisation  j'ai préferer afficher 3 café en aléatoire

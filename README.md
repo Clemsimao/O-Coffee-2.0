@@ -2,5 +2,5 @@
 
 ## Information du projet
 
-Refonte du projet O’Coffee visant à remplacer l’utilisation du DataMapper par Active Record avec Sequelize.
+Refonte du projet O’Coffee visant à remplacer l’utilisation du DataMapper et JS Vanilla par REACT.
 
