@@ -3,7 +3,7 @@ import "dotenv/config";
 import express from "express";
 //import cors from "cors";
 
-//import { router } from "./app/router.js";
+import { router } from "./app/router.js";
 
 // Création de l'application
 const app = express();
@@ -23,7 +23,7 @@ app.use(express.json());
 );*/
 
 // Mise en place du router
-//app.use(router);
+app.use(router);
 
 // Gestion d'erreur
 //app.use(notFound);    

@@ -1,4 +1,4 @@
-import { sequelize } from "../../database/database";
+import { sequelize } from "../../database/database.js";
 import { Model, DataTypes } from "sequelize";
 
 class Coffee extends Model {}
