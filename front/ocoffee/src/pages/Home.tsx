@@ -18,10 +18,6 @@ const Home = ({ newCoffee }: HomeProps) => {
             <Link to="/catalogue" className="button">Voir le catalogue</Link>
             <img className="image-accueil" src="/images/about.webp" alt="Image de présentation de café" />
             <NewCoffeeSection newCoffee={newCoffee}/>
-            <section className='localisation'>
-            <h2>Comment nous trouver ?</h2>
-            <div id="map"></div>
-            </section>
         </main>
     );
 };
