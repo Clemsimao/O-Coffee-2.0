@@ -14,7 +14,7 @@ const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home featuredCoffees={featured} />} />
+                <Route path="/" element={<Home newCoffee={featured} />} />
                 {/* Tu pourras ajouter d’autres routes ici */}
             </Routes>
         </Router>

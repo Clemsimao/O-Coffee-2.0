@@ -1,7 +1,7 @@
 import "dotenv/config";
 //import { notFound, errorHandler } from "./app/middlewares/errorHandlers.js";
 import express from "express";
-//import cors from "cors";
+import cors from "cors";
 
 import { router } from "./app/router.js";
 
@@ -9,7 +9,7 @@ import { router } from "./app/router.js";
 const app = express();
 app.use(express.json());
 
-/*app.use(
+app.use(
     cors({
         // Les URL autorisés à nous requêter
         origin: [
@@ -20,7 +20,7 @@ app.use(express.json());
             'http://127.0.0.1:5174',
         ]
     })
-);*/
+);
 
 // Mise en place du router
 app.use(router);
