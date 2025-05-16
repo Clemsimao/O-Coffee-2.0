@@ -88,7 +88,11 @@ header {
     flex-direction: row;
     text-align: center;
     width: 100%;
+    margin: 0;
     box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .header-logo img {
@@ -205,10 +209,9 @@ footer {
     background-color: var(--color-accent);
     padding: 0.5em;
     text-align: center;
-    width: 100%;
-    position: relative;
-    left: 0;
-    bottom: 0;
+    width: 100vw;
+    margin: 0;
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -579,4 +582,10 @@ main .nouveautes img {
     .nouveautes li {
         flex: 1 1 100%;
     }
+}
+/* Ensure #root stretches to full viewport and supports sticky footer layout */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
