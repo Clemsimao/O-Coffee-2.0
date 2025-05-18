@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Catalog from './pages/Catalog.tsx';
 import Header from './components/header.tsx';
 import Footer from './components/footer.tsx';
+import ProductWrapper from './components/productLoader';
 
 const App = () => {
     const [allCoffees, setAllCoffees] = useState<Coffee[]>([]);
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path="/" element={<Home newCoffee={featured} />} />
                 {/* Tu pourras ajouter d’autres routes ici */}
                 <Route path="/catalogue" element={<Catalog catalogList={allCoffees} />} />
+                <Route path="/produit/:id" element={<ProductWrapper allCoffees={allCoffees} />} />
             </Routes>
             <Footer/>
         </Router>
