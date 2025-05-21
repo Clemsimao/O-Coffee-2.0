@@ -104,6 +104,10 @@ header {
     font-size: 2em;
 }
 
+.name-logo:hover {
+    color: white;
+}
+
 .menu-burger {
     display: none;
     flex-direction: column;
