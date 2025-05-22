@@ -17,7 +17,7 @@ Ce projet a été réalisé dans le cadre de ma formation de reconversion chez *
 
 - **React 18**
 - **React Router DOM**
-- **Vite** (ou Create React App, selon ton setup)
+- **Vite** 
 - **Axios** pour les appels API
 - Connexion à un backend Node/Express existant
 
@@ -52,7 +52,7 @@ Ce projet m’a permis de mettre en application mes compétences en **JS moderne
 
 ---
 
-## 📸 Aperçu (optionnel)
+## 📸 Aperçu 
 
 ![screenshot](./front/ocoffee/public/images/screenshot.png)
 
