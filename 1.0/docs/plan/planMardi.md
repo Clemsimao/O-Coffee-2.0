@@ -1,7 +1,0 @@
-- [] mise en place de l'arborescence du dossier
-- [X] npm init
-- [X] fichier git ignore
-- [X] création du serveur
-- [X] fichier .env et .env.exemple
-- [X] modifier package
-- [] routage 
