@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import NotFoundPage from "../pages/404.tsx";
 import Product from "../pages/Product.tsx";
 import type Coffee from "../types/Coffee";
 
@@ -10,7 +11,7 @@ const ProductWrapper = ({ allCoffees }: ProductWrapperProps) => {
   const { id } = useParams<{ id: string }>();
   const product = allCoffees.find(coffee => coffee.id === Number(id));
 
-  if (!product) return <p>Produit introuvable.</p>;
+  if (!product) return <NotFoundPage/>;
 
   return <Product product={product} />;
 };
