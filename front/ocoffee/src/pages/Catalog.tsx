@@ -19,7 +19,7 @@ const Catalog = ({ catalogList }: CatalogProps) => {
             </section>
             <section>
                 <div className="container-produit">
-                    {(showAll ? catalogList : catalogList.slice(0, 6)).map((product, index) => (
+                    {(showAll ? catalogList : catalogList.slice(0, 6)).map((product) => (
                         <article
                             key={product.id}
                             className="produit"
