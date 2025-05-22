@@ -54,5 +54,5 @@ Ce projet m’a permis de mettre en application mes compétences en **JS moderne
 
 ## 📸 Aperçu (optionnel)
 
-![screenshot](./public/images/screenshot.png)
+![screenshot](./front/ocoffee/public/images/screenshot.png)
 
