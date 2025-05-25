@@ -516,7 +516,7 @@ main .nouveautes img {
         width: 30%;
     }
 
-    .main-menu.active {
+    .main-menu.open {
         display: flex;
     }
 
