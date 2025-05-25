@@ -38,8 +38,7 @@ Ce projet a été réalisé dans le cadre de ma formation de reconversion chez *
 
 - Intégration d’un système de panier
 - Authentification utilisateur (via JWT)
-- Tests unitaires avec Jest & React Testing Library
-- Déploiement sur Vercel / Netlify
+- Carousel sur page d'accueil
 
 ---
 
