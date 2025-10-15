@@ -1,0 +1,68 @@
+name: Deploy Frontend to Production
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  build-and-push-front:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./front/ocoffee
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/ocoffee-front:${{ env.IMAGE_TAG }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/ocoffee-front:latest
+
+  deploy-front:
+    needs: build-and-push-front
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy frontend to remote server (compose + up)
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            IMAGE_FRONT=${{ secrets.DOCKERHUB_USERNAME }}/ocoffee-front:${{ env.IMAGE_TAG }}
+            DEPLOY_DIR=${{ secrets.DEPLOY_PATH }}
+            mkdir -p "$DEPLOY_DIR"
+            cat > "$DEPLOY_DIR/docker-compose.front.yml" <<EOF
+            version: '3.8'
+            services:
+              front:
+                image: $IMAGE_FRONT
+                ports:
+                  - "5173:5173"
+                environment:
+                  - NODE_ENV=production
+                  - VITE_API_URL=http://host.docker.internal:3000
+            EOF
+            cd "$DEPLOY_DIR"
+            docker-compose -f docker-compose.front.yml pull || true
+            docker-compose -f docker-compose.front.yml up -d

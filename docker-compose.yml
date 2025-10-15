@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  back:
+    build:
+      context: ./back
+    container_name: ocffee_back
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - ./back:/usr/src/app:ro
+
+  front:
+    build:
+      context: ./front/ocoffee
+    container_name: ocffee_front
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://host.docker.internal:3000
+    depends_on:
+      - back
